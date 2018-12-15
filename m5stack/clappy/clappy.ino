@@ -10,7 +10,7 @@
 #include <ArduinoJson.h>
 #include "BLEDevice.h"
 
-char *ssid = " aterm-a55b9a-g";
+char *ssid = "aterm-a55b9a-g";
 char *password = "15208da0108bd";
 
 // MQTTの接続先のIP
@@ -19,7 +19,7 @@ const char *endpoint = "192.168.179.7";
 const int port = 1883;
 
 // デバイスID
-char *deviceID = "M5Stack";
+char *deviceID = "M5Stack2";
 // トピック
 char *akabekoTopic = "/sub/target/red";
 
