@@ -4,6 +4,8 @@
 ```
 // SSID
 aterm-a55b9a-g
+// または
+aterm-a55b9a-a
 // PASS
 15208da0108bd
 
