@@ -101,8 +101,9 @@ void mqttCallback (char* topic, byte* payload, unsigned int length) {
         return;
     }
 
-    Serial.printf("Topic: %s\n", topic);
+    Serial.printf("topic: %s\n", topic);
     if (topic == "/sub/bigakabeko") {
+        Serial.printf("/sub/bigakabeko");
         bool enable = root["value"];
         int time = root["time"];
         blower(enable, time);
