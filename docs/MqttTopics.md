@@ -1,5 +1,18 @@
 # MQTT Topicks
 
+## MQTTエンドポイント
+```
+// SSID
+aterm-a55b9a-g
+// PASS
+15208da0108bd
+
+// MQTTの接続先のIP
+192.168.179.7
+// MQTTのポート
+1883
+```
+
 ## Topicks
 * sub
     * マイコン側でsubしているトピック
