@@ -41,7 +41,7 @@ aterm-a55b9a-a
 * pub
     * マイコン側からsubされるトピック
     * /pub/gun
-        * /pub/bun/image
+        * /pub/gun/image
             * `BASE64 Image Data`
                 * 銃口のカメラの映像(1秒毎にpostされる)
         * /pub/gun/shot
