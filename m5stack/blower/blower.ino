@@ -58,7 +58,7 @@ void setup() {
     M5.Lcd.setCursor(10, 40);
     M5.Lcd.setTextColor(WHITE);
     M5.Lcd.setTextSize(2);
-    M5.Lcd.printf("WiFi Connected.");
+    M5.Lcd.printf("WiFi Connected.\n");
 
     mqttClient.setServer(endpoint, port);
     mqttClient.setCallback(mqttCallback);
@@ -101,9 +101,8 @@ void mqttCallback (char* topic, byte* payload, unsigned int length) {
         return;
     }
 
-    Serial.printf("topic: %s\n", topic);
-    if (topic == "/sub/bigakabeko") {
-        Serial.printf("/sub/bigakabeko");
+    Serial.printf("Topic: %s\n", topic);
+    if (strcmp(topic, "/sub/bigakabeko") == 0) {
         bool enable = root["value"];
         int time = root["time"];
         blower(enable, time);
@@ -115,6 +114,7 @@ void mqttCallback (char* topic, byte* payload, unsigned int length) {
  */
 void blower(bool enable, int time) {
     if (enable) {
+        M5.Lcd.println("blower drive");
         digitalWrite(blowerPin, HIGH);
         // time == 0 の場合は自動OFFしない
         if (time != 0) {
