@@ -40,3 +40,14 @@ sequenceDiagram
     M5 ->> R: リレーOFF
     R ->> B: ブロアOFF
 ```
+
+## クラッピー制御
+```mermaid
+sequenceDiagram
+    participant M as MQTT
+    participant M5 as M5Stack
+    participant S as Servo
+
+    M ->> M5: /sub/target/* サーボ制御情報受信(角度含む)
+    M5 ->> S: サーボ回転
+```
