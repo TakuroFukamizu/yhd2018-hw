@@ -33,7 +33,6 @@ sequenceDiagram
     participant R as Relay
     participant B as Blower
 
-
     M ->> M5: /sub/bigakabeko ブロア制御受信(ON時間含む)
     M5 ->> R: リレーON
     R ->> B: ブロアON
