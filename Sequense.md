@@ -24,3 +24,20 @@ sequenceDiagram
     A ->> A: ブロア ON時間待ち
     A ->> A: ブロア OFF
 ```
+
+## ブロア制御
+```mermaid
+sequenceDiagram
+    participant M as MQTT
+    participant M5 as M5Stack
+    participant R as Relay
+    participant B as Blower
+
+
+    M ->> M5: /sub/bigakabeko ブロア制御受信(ON時間含む)
+    M5 ->> R: リレーON
+    R ->> B: ブロアON
+    M5 ->> M5: ON時間の待ち
+    M5 ->> R: リレーOFF
+    R ->> B: ブロアOFF
+```
