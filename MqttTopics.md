@@ -4,8 +4,8 @@
 * sub
     * マイコン側でsubしているトピック
     * /sub/bigakabeko
-        * `{ value: true }`
-            * value: ブロアーのON/OFF: ON時間
+        * `{ value: true, time: 1000 }`
+            * value: ブロアーのON/OFF, time: ON時間(ms)
     * /sub/target
         * /sub/target/akabeko
         * /sub/target/red
