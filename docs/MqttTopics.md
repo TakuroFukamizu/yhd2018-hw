@@ -9,17 +9,17 @@
     * /sub/target
         * /sub/target/akabeko
         * /sub/target/red
-            * `{ value: 100 }`
-                * 角度
+            * `{ value: true, time: 1000 }`
+                * 倒れてから起き上がる時間(ms)
         * /sub/target/pink
-            * `{ value: 100 }`
-                * 角度
+            * `{ value: true, time: 1000 }`
+                * 倒れてから起き上がる時間(ms)
         * /sub/target/white
-            * `{ value: 100 }`
-                * 角度
+            * `{ value: true, time: 1000 }`
+                * 倒れてから起き上がる時間(ms)
         * /sub/target/yellow
-            * `{ value: 100 }`
-                * 角度
+            * `{ value: true, time: 1000 }`
+                * 倒れてから起き上がる時間(ms)
 * pub
     * マイコン側からsubされるトピック
     * /pub/gun
