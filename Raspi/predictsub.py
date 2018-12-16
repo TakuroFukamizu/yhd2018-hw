@@ -15,7 +15,7 @@ def on_message(client, userdata, msg):
     global counter
     message = msg.payload.decode(encoding='utf-8')
     json_data = json.loads(message)
-    items = [ (items["id"], items["name"], items["detected_area"]) for item in json_data["item"] ]
+    items = [ (item["id"], item["name"], item["detected_area"]) for item in json_data["item"] ]
     print_detects(items)
 
     with open("./predicted_ringbuffer/buffer" + str(counter % 12) + ".json", "w") as file:
