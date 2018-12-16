@@ -18,9 +18,9 @@ try:
 
         #-------------Draw Pictures------------#
         items = []
-        items.append((0, "トールくん(赤)", 10, 0, 200, 150))
-        items.append((1, "トールくん(黄)", 50, 20, 180, 100))
-        items.append((8, "赤べこ", 11, 4, 240, 154))
+        items.append((0, "トールくん(赤)", [10, 0, 200, 150]))
+        items.append((1, "トールくん(黄)", [50, 20, 180, 100]))
+        items.append((8, "赤べこ", [11, 4, 240, 154]))
 
         print_detects(items)
         OLED.Delay(2000)
