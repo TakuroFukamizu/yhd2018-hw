@@ -16,6 +16,8 @@ def on_message(client, userdata, msg):
     json_data = json.loads(message)
     with open("./predicted_ringbuffer/buffer" + str(counter % 12) + ".json", "w") as file:
         file.write(json.dumps(json_data))
+    with open("./predicted_ringbuffer/head.txt", "w") as file:
+        file.write(str(counter % 12))
     counter = counter + 1
 
 if __name__ == '__main__':
