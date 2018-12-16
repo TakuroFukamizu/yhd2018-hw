@@ -3,8 +3,6 @@ import json
 import RPi.GPIO as GPIO
 
 GPIO.setmode(GPIO.BCM)
-GPIO.setup(20, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
-
 host = "192.168.179.7"
 port = 1883
 topic = "/pub/gun/shot"
@@ -43,6 +41,7 @@ def load_buffer():
 
 def trigger():
     dataList = load_buffer()
+    print(dataList)
 
     for data in dataList:
         items = data["items"]
@@ -57,13 +56,19 @@ def trigger():
             client.publish(topic, json.dumps(pubdata))
 
 def buttonstate():
-    while True:
-        if GPIO.input(24) == True:
-            trigger()
+    try:
+        while True:
+            if GPIO.input(4) == False:
+                print("OK")
+                trigger()
+    except KeyboardInterrupt:
+        GPIO.cleanup()
 
 
 if __name__ == '__main__':
+    GPIO.setup(4, GPIO.IN,pull_up_down=GPIO.PUD_UP)
     client = mqtt.Client(protocol=mqtt.MQTTv311)
     client.on_connect = on_connect
     client.connect(host, port=port, keepalive=10)
     buttonstate()
+    GPIO.cleanup()
