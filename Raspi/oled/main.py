@@ -2,7 +2,7 @@
 
 #--------------Driver Library-----------------#
 import RPi.GPIO as GPIO
-import OLED_Driver as OLED
+import .OLED_Driver as OLED
 
 from .PrintDetects import print_detects
 
