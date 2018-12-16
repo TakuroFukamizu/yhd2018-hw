@@ -47,6 +47,9 @@ aterm-a55b9a-a
         * /pub/gun/shot
             * `{ target: red }`
                 * 対象
+                    * akabeko
+                    * red
+                    * yellow
 
 ### /sub/gun/predicted のメッセージスキーマ
 ```json

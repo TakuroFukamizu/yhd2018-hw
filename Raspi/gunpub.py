@@ -19,6 +19,8 @@ pubdict = {"topic": ""}
 def choice():
     return random.choice(["red", "clap"])
 
+# 疎通確認のためにfor文でランダムにjsonを送っていました。
+# リングバッファの実装をお願いしたいです。
 for i in range(10):
     print(i)
     pubdict["topic"] = choice()
