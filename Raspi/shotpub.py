@@ -33,7 +33,10 @@ def load_buffer():
             break
 
         with open("./predicted_ringbuffer/buffer" + str(abs(head % 12)) + ".json", "r") as file:
-            dataList.append(file.read())
+            txtfile = file.read()
+            jsonobj = json.loads(txtfile)
+            if len(jsonobj["items"]) > 0:
+                dataList.append(jsonobj)
         head -= 1
 
     return dataList
@@ -42,11 +45,16 @@ def trigger():
     dataList = load_buffer()
 
     for data in dataList:
-        # 名前を解決
-        pubdata = {
-            "target": names[json.loads(data)["items"][0]["id"]]
-        }
-        client.publish(topic, json.dumps(pubdata))
+        items = data["items"]
+        for item in items:
+            class_index = item["id"]
+            if class_index not in [0, 1, 8]:
+                continue
+            # 名前を解決
+            pubdata = {
+                "target": names[class_index]
+            }
+            client.publish(topic, json.dumps(pubdata))
 
 def buttonstate():
     while True:
