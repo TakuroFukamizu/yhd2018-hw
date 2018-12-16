@@ -18,6 +18,8 @@ def on_message(client, userdata, msg):
         file.write(json.dumps(json_data))
     with open("./predicted_ringbuffer/head.txt", "w") as file:
         file.write(str(counter % 12))
+    with open("./predicted_ringbuffer/counter.txt", "w") as file:
+        file.write(str(counter))
     counter = counter + 1
 
 if __name__ == '__main__':
