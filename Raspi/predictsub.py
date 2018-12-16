@@ -1,5 +1,6 @@
 import paho.mqtt.client as mqtt
 import json
+from .oled.PrintDetects import print_detects
 
 host = "192.168.179.7"
 port = 1883
@@ -14,12 +15,16 @@ def on_message(client, userdata, msg):
     global counter
     message = msg.payload.decode(encoding='utf-8')
     json_data = json.loads(message)
+    items = [ (item["id"], item["name"], item["detected_area"]) for item in json_data["item"] ]
+    print_detects(items)
+
     with open("./predicted_ringbuffer/buffer" + str(counter % 12) + ".json", "w") as file:
         file.write(json.dumps(json_data))
     with open("./predicted_ringbuffer/head.txt", "w") as file:
         file.write(str(counter % 12))
     with open("./predicted_ringbuffer/counter.txt", "w") as file:
         file.write(str(counter))
+
     counter = counter + 1
 
 if __name__ == '__main__':
