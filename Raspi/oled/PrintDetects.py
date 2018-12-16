@@ -32,7 +32,7 @@ def print_detects(items: list):
     image = Image.new("RGB", (OLED.SSD1351_WIDTH, OLED.SSD1351_HEIGHT), "BLACK")
     draw = ImageDraw.Draw(image)
     font = ImageFont.truetype(font_path, font_size)
-    for i, (class_index, class_label, left, top, width, height) in enumerate(items):
+    for i, (class_index, class_label, [left, top, width, height]) in enumerate(items):
         if i >= len(line_pos): break
         pos = line_pos[i]
         color = class_colors[class_index]
